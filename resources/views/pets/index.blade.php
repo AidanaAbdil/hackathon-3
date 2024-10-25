@@ -35,8 +35,8 @@
                 <td>{{ $pet->name }}</td>
                 <td>{{ $pet->age }}</td>
                 <td>{{ $pet->breed }}</td>
-                <td>{{ $pet->owner->surname }}</td>
-            
+                <td>{{ $pet->owner->surname }}</td> 
+                  
             @endforeach
         </tbody>
     </table>
