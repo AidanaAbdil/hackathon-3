@@ -11,8 +11,9 @@ class AnimalController extends Controller
 {
     public function index()
     {
-        $pets = Animal::orderBy("name","asc")
-            ->with("owner")
+        $pets = Animal::orderBy("name", "asc")
+            ->with(["owner", "image"])
+            ->limit(10)
             ->get();
 
         return view("pets.index" , compact("pets"));
@@ -76,16 +77,17 @@ class AnimalController extends Controller
             '' => ''
         ]);
 
+       
         $pet = Animal::findOrFail($request->pet_id)
 ;       $pet->name = $request->input('name');
         $pet->age = $request->input('age');
         $pet->breed = $request->input('breed');
-        $pet->owner = $request->input('owner');
+        $pet->owner_id = $request->input('owner');
         $pet->species = $request->input('species');
         $pet->weight = $request->input('weight');
-
-
         $pet->save();
+
+        session()->flash('success_message', 'Success!');
 
         return redirect()->route('pets.edit', ['id' => $pet->id])->with('success', '');
     }
