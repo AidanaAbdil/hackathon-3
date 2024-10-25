@@ -36,14 +36,7 @@
                 <td>{{ $pet->age }}</td>
                 <td>{{ $pet->breed }}</td>
                 <td>{{ $pet->owner->surname }}</td> 
-                <td>
-                    <!-- @if($pet->images)
-                        <img src="{{ asset('storage/' . $pet->images->path) }}" alt="{{ $pet->name }}" width="100">
-                    @else
-                        No Image
-                    @endif
-                </td>
-            </tr>
+                  
             @endforeach
         </tbody>
     </table>

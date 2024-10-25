@@ -1,17 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    <ul>
-        <li>
-            @foreach ($pets as $pet)
-                <li>{{$pet->name}}</li>
-            @endforeach
-        </li>
-    </ul>
+    <h2>Pets found</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Species</th>
+                <th>Owner Name</th>
+                <th>Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($pets as $pet)
+            <tr>
+                <td>{{ $pet->name }}</td>
+                <td>{{ $pet->age }}</td>
+                <td>{{ $pet->breed }}</td>
+                <td>{{ $pet->owner->surname }}</td>
+
+                @endforeach
+        </tbody>
+    </table>
 </body>
+
 </html>
