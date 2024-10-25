@@ -16,5 +16,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/pets', [App\Http\Controllers\AnimalsController::class,'index']);
-Route::post('/pets/search', [App\Http\Controllers\AnimalsController::class,'search'])->name('pets.search');
+Route::get('/pets', [App\Http\Controllers\AnimalController::class,'index']);
+Route::post('/pets/search', [App\Http\Controllers\AnimalController::class,'search'])->name('pets.search');

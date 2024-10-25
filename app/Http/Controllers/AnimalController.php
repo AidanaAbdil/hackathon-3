@@ -7,12 +7,12 @@ use App\Models\Owner;
 use Illuminate\Http\Request;
 
 
-class AnimalsController extends Controller
+class AnimalController extends Controller
 {
     public function index()
     {
         $pets = Animal::orderBy("name","asc")
-            ->with(["owner", "image"])
+            ->with("owner")
             ->get();
 
         return view("pets.index" , compact("pets"));
